@@ -1,0 +1,153 @@
+{% set image = page.media.images|first %}
+
+	<div class="tileBox content">
+		<h2>{{ page.header.contentTitle }}</h2>
+		{{ page.content }}
+
+		{% if page.header.contentAddressCompany %}
+
+			{% if page.header.contentAddressIcon %}
+				<div class="adressBlock withIcon" itemscope itemtype="http://schema.org/Organization">
+					<i class="{{ page.header.contentAddressIcon }}"></i>
+			{% else %}
+				<div class="adressBlock" itemscope itemtype="http://schema.org/Organization">			
+			{% endif %}
+				<p><span itemprop="name">{{ page.header.contentAddressCompany }}</span></p>
+				{% if page.header.contentAddressSubline %}
+					<p><span itemprop="description">{{ page.header.contentAddressSubline }}</span></p>
+				{% endif %}
+				{% if page.header.contentAddressPerson %}
+					<div itemscope class="person" itemtype="http://schema.org/Person">
+						<p><span itemprop="name">{{ page.header.contentAddressPerson }}</span></p>
+					</div>
+				{% endif %}
+				<div itemprop="address" class="adress" itemscope itemtype="http://schema.org/PostalAddress">
+					{% if page.header.contentAddressStreet %}
+						<p><span itemprop="streetAddress">{{ page.header.contentAddressStreet }}</span></p>
+					{% endif %}
+					<p>
+					{% if page.header.contentAddressPostal %}
+						<span itemprop="postalCode">{{ page.header.contentAddressPostal }}</span>
+					{% endif %}
+					{% if page.header.contentAddressCity %}
+						<span itemprop="addressLocality">{{ page.header.contentAddressCity }}</span>
+					{% endif %}
+					</p>
+					{% if page.header.contentAddressCountry %}
+						<p><span itemprop="addressCountry">{{ page.header.contentAddressCountry }}</span></p>
+					{% endif %}
+				</div>
+				{% if page.header.contentAddressPhone %}
+					<p>tel: <span itemprop="telephone">{{ page.header.contentAddressPhone }}</span></p>
+				{% endif %}
+				{% if page.header.contentAddressFax %}
+					<p>fax: <span itemprop="faxNumber">{{ page.header.contentAddressFax }}</span></p>
+				{% endif %}
+				{% if page.header.contentAddressMail %}
+					<p>mail: <a itemprop="email" href="mailto:{{ page.header.contentAddressMail|safe_email }}">{{ page.header.contentAddressMail|safe_email }}</a></p>
+				{% endif %}
+				{% if page.header.contentAddressUrl %}
+					<p>web: <a itemprop="url" href="{{ page.header.contentAddressUrl }}">{{ page.header.contentAddressUrl }}</a></p>
+				{% endif %}
+			</div>
+					
+		{% endif %}		
+		
+		{% if page.header.contentButtonLabel %}
+			{% if page.header.contentButtonMail %}
+				<a class="button" role="button" href="mailto:{{ page.header.contentButtonMail|safe_email }}"><i class="{{ page.header.contentButtonIcon }}"></i> {{ page.header.contentButtonLabel }}</a>
+			{% elseif page.header.contentButtonLink %}
+				<a class="button" role="button" href="{{ page.header.contentButtonLink }}"><i class="{{ page.header.contentButtonIcon }}"></i> {{ page.header.contentButtonLabel }}</a>
+			{% endif %}
+		{% endif %}
+				
+	</div><div class="tileBox visual">
+
+		{% if page.header.visualContact %}
+			<div class="contact">
+			
+			{% for child in page.header.visualContact %}
+						
+				{% if child.visualContactType == 'number' %}
+					<a href="tel:{{ child.visualContactContent|regex_replace('/([a-zA-Z \-\.\,\\/])/', '') }}">
+				{% elseif child.visualContactType == 'mail' %}
+					<a href="mailto:{{ child.visualContactContent|safe_email }}">
+				{% elseif child.visualContactType == 'social' %}
+					<a href="{{ child.visualContactLink }}">
+				{% endif %}
+					<div class="contactBlock">
+					
+						{% if child.visualContactIcon %}
+							<i class="{{ child.visualContactIcon }}"></i>
+						{% endif %}
+						{% if child.visualContactHeadline %}
+							<span class="h3">{{ child.visualContactHeadline }}</span>
+						{% endif %}
+						{% if child.visualContactContent %}
+							{% if child.visualContactType == 'mail' %}
+								<span class="p">{{ child.visualContactContent|safe_email }}</span>
+							{% else %}
+								<span class="p">{{ child.visualContactContent }}</span>
+							{% endif %}
+						{% endif %}
+					</div>
+				</a>
+				
+			{% endfor %}
+			
+			</div>
+		{% elseif page.header.visualIcon %}
+			<div class="icon">
+				<i class="{{ page.header.visualIcon }}"></i>
+			</div>
+		{% elseif page.header.visualText %}
+			<div class="text">
+				<p>{{ page.header.visualText }}</p>
+			</div>
+		{% elseif page.header.visualButtonLabel %}
+			<div class="button">
+				{% if page.header.visualButtonMail %}
+					<a class="button" role="button" href="mailto:{{ page.header.visualButtonMail|safe_email }}"><i class="{{ page.header.visualButtonIcon }}"></i> {{ page.header.visualButtonLabel }}</a>
+				{% elseif page.header.visualButtonLink %}
+					<a class="button" role="button" href="{{ page.header.visualButtonLink }}"><i class="{{ page.header.visualButtonIcon }}"></i> {{ page.header.visualButtonLabel }}</a>
+				{% endif %}
+			</div>
+		{% elseif page.header.visualChecklistItems %}
+			<div class="checklist">
+				<ul class="fa-ul">
+				{% for child in page.header.visualChecklistItems %}
+					<li><i class="fa-li {{ page.header.visualChecklistIcon }}"></i>{{ child.visualChecklistItem }}</li>
+				{% endfor %}
+				</ul>
+			</div>
+		{% elseif page.header.visualBarChartItems %}
+			<div class="barchart">
+				{% for child in page.header.visualBarChartItems %}
+					<div class="barchartItem">
+						<div class="barchartItem outer">
+							<div class="barchartItem inner" style="width:{{ child.visualBarChartPercent|number_format }}%"></div>
+							<p>{{ child.visualBarChartItem }}</p>
+						</div>
+					</div>
+				{% endfor %}
+				</ul>
+			</div>
+		{% elseif page.header.visualMapActive == true %}
+			<div id="map" data-longitude="{{ page.header.visualMapLongitude }}" data-latitude="{{ page.header.visualMapLatitude }}" data-key="{{ page.header.visualMapKey }}"></div>
+		{% elseif image %}
+			<div class="image">
+				{{ image.cropResize(300,300).html }}
+			</div>		
+		{% elseif page.header.visualArticleList %}
+			<div class="articlelist">
+				{% for article in page.find(page.header.visualArticleList).children.order('date', 'desc').slice(0, page.header.visualArticleNumber|number_format) %}
+					{% set aimage = article.media.images|first %}
+					<div class="grid item-{{ loop.index }}">
+						<a href="{{ article.url }}">{{ aimage.cropResize(200,200).html }}</a>						
+					</div>
+				{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+
+	</div>

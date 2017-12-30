@@ -1,0 +1,715 @@
+/*************************************
+* 		SEMANTIC SELECTORS			 *
+*************************************/
+
+@font-face {
+  font-family: 'Muli';
+  src: url('fonts/Muli-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+/*************************************
+* 		SEMANTIC SELECTORS			 *
+*************************************/
+
+[href^="mailto"]:before {
+	content="\E004";
+}
+[target="_blank"]:after {
+	content="\E004";
+}
+[href$=".jpg"]:before, [href$=".jpeg"]:before, [href$=".png"]:before{
+	content="\E004";
+}
+
+/*************************************
+* 		TRANSITIONS			 		 *
+*************************************/
+
+a, a:link, a:visited, a:focus, a:hover, a:active, input[type="submit"], button, .button{
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+
+button, input[type="submit"], .button a{
+	cursor: pointer;
+	transition-delay: 50ms;	
+}
+button:active, input[type="submit"]:active, .button a:active{
+	transition: none;
+}
+button:focus {outline:none;}
+button::-moz-focus-inner {border:0;}
+button:disabled{
+	background: #DDD;
+	color: #BBB;
+}
+
+
+/*************************************
+* 			Fonts					 *
+*************************************/
+body{
+	font-family: 'Muli';
+}
+
+.logo{
+	font-family: 'Exo';
+}
+h1,h2,h3,h4,h5,h6{
+	
+}
+
+/*************************************
+* 			COLORS DEFAULT			 *
+*************************************/
+
+/* BODY HEADER*/
+body{																		background: #FFF; color: #FFF; }
+header{ 																	background: #F0F1F3; }
+header .logo a, header .logo a:link, header .logo a:focus,
+header .logo a:hover,header .logo a:active,header .logo a:visited{			color: #404040; }
+header nav ul li a, header nav ul li a:link,header nav ul li a:visited{		color: #404040; border-bottom: 3px solid transparent; }
+header nav ul li a:focus, header nav ul li a:hover, 
+header nav ul li a:active, header nav ul li.active a{						border-bottom: 3px solid #07889B; }
+
+/* TILEBOX.CONTENT */
+.content{																	color: #FFF; background: #07889B; }
+.content a, .content a:link, .content a:visited{							color: #FFF; text-decoration: underline; }
+.content a:hover, .content a:focus, .content a:active{						text-decoration: none; }
+.content a.button, .content a.button:link, .content a.button:visited{		color: #FFF; background: #07889B; border: 3px solid #FFF; text-decoration: none; }
+.content a.button:hover, .content a.button:focus, .content a.button:active{	color: #07889B; background: #F0F1F3; border: 3px solid #F0F1F3; text-decoration: none; }
+
+/* TILEBOX.VISUAL */
+.visual{ 																	color: #07889B; background: #F0F1F3; }
+.visual a, .visual a:link, .visual a:visited{ 								color: #07889B; }
+.visual a:hover, .visual a:focus, .visual a:active{ 						color: #07889B; }
+.visual a.button, .visual a.button:link, .visual a.button:visited{			color: #07889B; border: 3px solid #07889B;}
+.visual a.button:hover, .visual a.button:focus, .visual a.button:active{	color: #F0F1F3; background: #07889B; }
+.visual .barchart p{ 														color: #FFF; }
+.visual .barchart .outer{													border: 1px solid #07889B; }
+.visual .barchart .inner{													background: #07889B; }
+.visual .image {															border: 5px solid #DDD; }
+.visual .articlelist .grid{													border: 3px solid #DDD;	}
+
+/* LISTINGPAGE */
+.listingpage .content .readMore a,
+.listingpage .content .readMore a:link,
+.listingpage .content .readMore a:visited{ 									color: #FFF; background: #07889B; border: 1px solid #FFF; text-decoration: none; }
+.listingpage .content .readMore a:focus,
+.listingpage .content .readMore a:hover,
+.listingpage .content .readMore a:active{									color: #07889B; background: #F0F1F3; border: 1px solid #F0F1F3; text-decoration: none; }
+
+/* LISTINGITEM */
+.listingitem article{														color: #FFF; background: #07889B; }
+.listingitem .footernavi a, .listingitem .footernavi a:link,
+.listingitem .footernavi a:visited{ 										color: #FFF; background: #07889B; border: 1px solid #FFF; text-decoration: none; }
+.listingitem .footernavi a:focus, .listingitem .footernavi a:hover, 
+.listingitem .footernavi a:active{											color: #07889B; background: #F0F1F3; border: 1px solid #F0F1F3; text-decoration: none; }
+
+
+/* #968586
+.content{																	color: #FFF; background: #6D7993; }
+.visual{ 																	color: #6D7993; background: #D5D5D5; }
+
+.content{																	color: #FFF; background: #B82601; }
+.visual{ 																	color: #6D7993; background: #FFF; }
+body{ background: #D5D5D5; }
+/* #062F4F */
+
+
+
+/****************************
+*		COLOR NATURE		*
+****************************/
+
+body.colorNature{ 															background: #FFF; }
+.colorNature h1, .colorNature h2, .colorNature h3 {							color: #76323F; }
+.colorNature header{ 														background: #D7CEC7; }
+.colorNature header .logo a, .colorNature header .logo a:link, 
+.colorNature header .logo a:focus, .colorNature header .logo a:hover,
+.colorNature header .logo a:active, .colorNature header .logo a:visited{	color: #76323F; }
+.colorNature header nav ul li a, .colorNature header nav ul li a:link,
+.colorNature header nav ul li a:visited{									color: #76323F; border-bottom: 3px solid transparent; }
+.colorNature header nav ul li a:focus, 
+.colorNature header nav ul li a:hover, 
+.colorNature header nav ul li a:active, 
+.colorNature header nav ul li.active a{										border-bottom: 3px solid #76323F; }
+.colorNature .tileBox{														border-bottom: 10px solid #FFF; }
+
+.colorNature .content{														color: #565656; background: #D7CEC7; }
+.colorNature .content a, .colorNature .content a:link, 
+.colorNature .content a:visited{											color: #FFF; text-decoration: none; }
+.colorNature .content a:hover, .colorNature .content a:focus, 
+.colorNature .content a:active{												text-decoration: none; }
+.colorNature .content a.button, .colorNature .content a.button:link, 
+.colorNature .content a.button:visited{										color: #FFF; background: #76323F; border: 3px solid #76323F; text-decoration: none; }
+.colorNature .content a.button:hover, .colorNature .content a.button:focus, 
+.colorNature .content a.button:active{										color: #76323F; background: #D7CEC7; border: 3px solid #76323F; text-decoration: none; }
+
+.colorNature .visual{ 														color: #76323F; background: #D7CEC7; }
+.colorNature .visual a, .colorNature .visual a:link, 
+.colorNature .visual a:visited{ 											color: #76323F; }
+.colorNature .visual a:hover, .colorNature .visual a:focus, 
+.colorNature .visual a:active{ 												color: #76323F; }
+.colorNature .visual a.button, .colorNature .visual a.button:link, 
+.colorNature .visual a.button:visited{										color: #FFF; background: #76323F; border: 3px solid #76323F; text-decoration: none;}
+.colorNature .visual a.button:hover, .colorNature .visual a.button:focus, 
+.colorNature .visual a.button:active{										color: #76323F; background: #D7CEC7; border: 3px solid #76323F; text-decoration: none; }
+.colorNature .visual .barchart p{ 											color: #FFF; }
+.colorNature .visual .barchart .outer{										border: 1px solid #76323F; }
+.colorNature .visual .barchart .inner{										background: #76323F; }
+.colorNature .visual .image {												border: 1px solid #565656; }
+.colorNature .visual .articlelist .grid{									border: 1px solid #565656;	}
+
+.colorNature .listingpage .content a,
+.colorNature .listingpage .content a:link,
+.colorNature .listingpage .content a:visited{ 								color: #76323F; text-decoration: none; }
+.colorNature .listingpage .content a:focus,
+.colorNature .listingpage .content a:hover,
+.colorNature .listingpage .content a:active{								color: #76323F; text-decoration: underline; }
+
+.colorNature .listingpage .content .readMore a,
+.colorNature .listingpage .content .readMore a:link,
+.colorNature .listingpage .content .readMore a:visited{ 					color: #FFF; background: #76323F; border: 1px solid #76323F; text-decoration: none; }
+.colorNature .listingpage .content .readMore a:focus,
+.colorNature .listingpage .content .readMore a:hover,
+.colorNature .listingpage .content .readMore a:active{						color: #76323F; background: #D7CEC7; border: 1px solid #76323F; text-decoration: none; }
+
+/* LISTINGITEM */
+.colorNature .listingitem article{											color: #565656; background: #D7CEC7; }
+.colorNature .listingitem .footernavi a, 
+.colorNature .listingitem .footernavi a:link,
+.colorNature .listingitem .footernavi a:visited{ 							color: #FFF; background: #76323F; border: 1px solid #76323F; text-decoration: none;  }
+.colorNature .listingitem .footernavi a:focus, 
+.colorNature .listingitem .footernavi a:hover, 
+.colorNature .listingitem .footernavi a:active{								color: #76323F; background: #D7CEC7; border: 1px solid #76323F; text-decoration: none; }
+
+
+
+/****************************
+*		COLOR MONO			*
+****************************/
+
+body.colorMono{ 															background: #465C8B; }
+.colorMono h1, .colorMono h2, .colorMono h3 {								color: #DFDCE3; }
+.colorMono header{ 															background: #465C8B; padding-bottom: 20px; border-bottom: 1px dotted #DFDCE3; }
+.colorMono header .logo a, .colorMono header .logo a:link, 
+.colorMono header .logo a:focus, .colorMono header .logo a:hover,
+.colorMono header .logo a:active, .colorMono header .logo a:visited{		color: #DFDCE3; }
+.colorMono header nav ul li a, .colorMono header nav ul li a:link,
+.colorMono header nav ul li a:visited{										color: #DFDCE3; border-bottom: 3px solid transparent; }
+.colorMono header nav ul li a:focus, 
+.colorMono header nav ul li a:hover, 
+.colorMono header nav ul li a:active, 
+.colorMono header nav ul li.active a{										border-bottom: 3px solid #DFDCE3; }
+.colorMono .tileBox{														border-bottom: 0 }
+
+.colorMono section{  														padding: 20px 0; border-bottom: 1px dotted #DFDCE3; }
+
+.colorMono .content{														color: #DFDCE3; background: transparent; }
+.colorMono .content a, .colorMono .content a:link, 
+.colorMono .content a:visited{												color: #DFDCE3; text-decoration: underline; }
+.colorMono .content a:hover, .colorMono .content a:focus, 
+.colorMono .content a:active{												text-decoration: none; }
+.colorMono .content a.button, .colorMono .content a.button:link, 
+.colorMono .content a.button:visited{										color: #DFDCE3; background: #465C8B; border: 3px solid #DFDCE3; text-decoration: none; }
+.colorMono .content a.button:hover, .colorMono .content a.button:focus, 
+.colorMono .content a.button:active{										color: #465C8B; background: #DFDCE3; border: 3px solid #DFDCE3; text-decoration: none; }
+
+.colorMono .visual{ 														color: #DFDCE3; background: transparent; }
+.colorMono .visual a, .colorMono .visual a:link, 
+.colorMono .visual a:visited{ 												color: #DFDCE3; }
+.colorMono .visual a:hover, .colorMono .visual a:focus, 
+.colorMono .visual a:active{ 												color: #DFDCE3; }
+.colorMono .visual a.button, .colorMono .visual a.button:link, 
+.colorMono .visual a.button:visited{										color: #DFDCE3; background: #465C8B; border: 3px solid #DFDCE3; text-decoration: none;}
+.colorMono .visual a.button:hover, .colorMono .visual a.button:focus, 
+.colorMono .visual a.button:active{											color: #465C8B; background: #DFDCE3; border: 3px solid #DFDCE3; text-decoration: none; }
+.colorMono .visual .barchart p{ 											color: #DFDCE3; }
+.colorMono .visual .barchart .outer{										border: 1px solid #DFDCE3; background: #DFDCE3; }
+.colorMono .visual .barchart .inner{										background: #465C8B; }
+.colorMono .visual .image {													border: 3px solid #DFDCE3; }
+.colorMono .visual .articlelist .grid{										border: 3px solid #DFDCE3;	}
+
+.colorMono .listingpage .content a,
+.colorMono .listingpage .content a:link,
+.colorMono .listingpage .content a:visited{ 								color: #DFDCE3; text-decoration: underline; }
+.colorMono .listingpage .content a:focus,
+.colorMono .listingpage .content a:hover,
+.colorMono .listingpage .content a:active{									color: #DFDCE3; text-decoration: none; }
+
+.colorMono .listingpage .content .readMore a,
+.colorMono .listingpage .content .readMore a:link,
+.colorMono .listingpage .content .readMore a:visited{ 						color: #DFDCE3; background: #465C8B; border: 1px solid #DFDCE3; text-decoration: none; }
+.colorMono .listingpage .content .readMore a:focus,
+.colorMono .listingpage .content .readMore a:hover,
+.colorMono .listingpage .content .readMore a:active{						color: #465C8B; background: #DFDCE3; border: 1px solid #DFDCE3; text-decoration: none; }
+
+/* LISTINGITEM */
+.colorMono .listingitem article{											color: #DFDCE3; background: transparent; }
+.colorMono .listingitem .footernavi a, 
+.colorMono .listingitem .footernavi a:link,
+.colorMono .listingitem .footernavi a:visited{ 								color: #DFDCE3; background: #465C8B; border: 1px solid #DFDCE3; text-decoration: none;  }
+.colorMono .listingitem .footernavi a:focus, 
+.colorMono .listingitem .footernavi a:hover, 
+.colorMono .listingitem .footernavi a:active{								color:  #465C8B; background: #DFDCE3; border: 1px solid #DFDCE3; text-decoration: none; }
+
+/*************************************
+*	BASICS AND STRUCTURE			*
+*************************************/
+
+body, html{
+	font-size: 18px;
+	font-family: 'Muli';
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	padding:10px;
+}
+.desktopWrapper, header{
+	display: block;
+	box-sizing: border-box;
+}
+header{
+	margin-bottom: 10px;
+	position: relative;
+	padding-bottom: 10px;
+}
+header .logo{
+	font-weight: 700;
+	font-size: 1.3em;
+	box-sizing: border-box;
+	text-align: center;
+}
+header .logo, header nav{
+	display: block;
+	padding: 10px;
+	box-sizing: border-box;
+}
+header .logo{
+	width: 100%;
+	margin: auto;
+}
+header nav{
+	text-align: center;
+	width: 100%;
+	margin: auto;
+}
+header nav ul{
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+header nav ul li{
+	display: inline-block;
+}
+header nav ul li a{
+	padding: 5px;
+	margin: 0px 5px;
+}
+section, .tileBox{
+	position: relative;
+	box-sizing: border-box;
+	vertical-align: top;
+}
+section, article{
+	display: inline-block;
+	width: 100%;
+}
+.tileBox{
+	width: 100%;
+	min-height: 320px;
+	box-sizing: border-box;
+	padding: 20px 40px;
+}
+.tileBox.content{
+	padding: 20px 40px 40px;
+}
+
+/*************************************
+*		LINKS AND BUTTONS			 *
+*************************************/
+
+a, a:link, a:focus, a:hover, a:active, a:visited{
+	text-decoration: none;
+}
+a.button, a.button:link, a.button:visited, a.button:hover, a.button:focus, a.button:active{
+	display: block;
+	margin: 50px auto;
+	padding: 20px;
+	box-sizing: border-box;
+	text-align: center;
+	font-weight: 700;
+}
+
+/*************************************
+*			CONTENT.ADRESS			*
+*************************************/
+
+.content .adressBlock{
+	position: relative;
+}
+.content .adressBlock.withIcon{
+	margin-left: 70px;
+}
+.content .adressBlock.withIcon i{
+	position: absolute;
+	left: -70px;
+	font-size: 2em;
+}
+.content .adressBlock p{
+	margin: 0;
+	padding: 0;
+}
+.content .adress{
+	margin: 8px 0;
+}
+.content .person{}
+
+/*************************************
+*			CONTENT.BUTTON			*
+*************************************/
+
+.content a.button{
+	width: 100%;
+}
+
+/*************************************
+*			VISUAL.CONTACT			*
+*************************************/
+
+.visual .contact{}
+.visual .contactBlock{
+	display: block;
+	position: relative;
+	width: 100%;
+	margin: 40px auto;
+}
+.visual .contact i{
+	position: absolute;
+	left: 0;
+	width: 60px;
+	font-size: 2.5em;
+}
+.visual .contact .h3{
+	display: block;
+	font-size:1.2em;
+	font-weight: 700;
+}
+.visual .contact .h3,
+.visual .contact .p{
+	margin-left: 70px;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+}
+
+/*************************************
+*			VISUAL.ICON				*
+*************************************/
+
+.visual .icon{
+	font-size: 6em;
+	line-height: 3em;
+	text-align: center;	
+}
+
+/*************************************
+*			VISUAL.TEXT 			*
+*************************************/
+
+.visual .text{
+	font-size: 1.6em;
+	text-align: left;
+	font-weight: 700;	
+}
+
+/*************************************
+*			VISUAL.BUTTON			*
+*************************************/
+
+.visual .button{
+	margin: 100px 0px;
+}
+
+/*************************************
+*			VISUAL.CHECKLIST		*
+*************************************/
+
+.visual .checklist{
+	font-size: 1.6em;
+	font-weight: 700;
+}
+.visual .checklist .fa-ul{
+	margin-left: 1em;
+}
+
+/*************************************
+*			VISUAL.BARCHART			*
+*************************************/
+.visual .barchart{
+	margin: 20px 0;
+}
+.visual .barchart .barchartItem{
+	margin-bottom: 30px;
+	position: relative;
+}
+.visual .barchart p{
+	margin: 0 0 0 5px;
+	padding: 0;
+	font-weight: 300;
+	line-height: 30px;
+	position: absolute;
+}
+.visual .barchart .outer{
+	width: 100%;
+	height: 30px;
+}
+.visual .barchart .inner{
+	height: 30px;
+	position: absolute;
+}
+
+/*************************************
+*			VISUAL.MAP				*
+*************************************/
+
+#map{
+	height: 400px;
+	margin: -20px -40px;
+}
+
+/*************************************
+*			VISUAL.IMAGE			*
+*************************************/
+
+.visual .image{
+	position: relative;
+	display: block;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	margin: 50px auto;
+	overflow: hidden;
+}
+.visual .image img{
+	height: 100%;
+}
+/*************************************
+*			VISUAL.ARTICLELIST		 *
+*************************************/
+
+.visual .articlelist .grid{
+	position: relative;
+	display: block;
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 20px;
+}
+.visual .articlelist .item-1{ position: absolute; left:50%; margin-left: -60px; top: 50%; margin-top:-60px; }
+.visual .articlelist .item-2{ position: absolute; left: 0; top:0; }
+.visual .articlelist .item-3{ position: absolute; right: 0; bottom: 0; }
+.visual .articlelist .item-4{ position: absolute; right: 0; top: 0; }
+.visual .articlelist .item-5{ position: absolute; left: 0; bottom: 0; }
+
+/*************************************
+*			LISTING.TEXT			*
+*************************************/
+
+.listingpage .content p.category{
+	text-transform: uppercase;
+	font-size: 0.8em;
+	margin: 20px 0 40px;
+}
+.listingpage .content .readMore{
+	position: absolute;
+	bottom: 40px;
+	right: 40px;
+}
+.listingpage .content .readMore a{ 
+	padding: 5px 10px;
+}
+
+/*************************************
+*			LISTING.IMAGE			 *
+*************************************/
+.listing .tileBox .visual.image{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: auto;
+	max-height: 400px;
+	overflow: hidden;
+	border-radius: 0;
+	box-sizing: border-box;
+	position: relative;
+}
+.listing .tileBox .visual.image{
+	padding: 0;
+	margin: auto;
+	width: 350px;
+	height: 350px;
+	max-height: 400px;
+	overflow: hidden;
+	border-radius: 50%;
+	box-sizing: border-box;
+	position: relative;
+}
+.listing .tileBox .visual.image img{
+	position: relative;
+	width: 100%;
+}
+
+/*************************************
+*			ITEM.ARTICLE			 *
+*************************************/
+.listingitem .tileBox{
+	padding: 40px;
+}
+.listingitem .footernavi{
+	width: 100%; 
+	display: inline-block;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.listingitem .footernavi .left{
+	float: left;
+}
+.listingitem .footernavi .right{
+	float: right;
+}
+.listingitem .footernavi a{
+	padding: 5px 10px;
+	min-width: 120px;
+	text-align: center;
+}
+.listingitem .tileBox.nomargin{
+	padding: 10px;
+	margin: 0px;
+}
+.listingitem .meta{
+	text-transform: uppercase;
+	font-size: 0.8em;
+}
+.listingitem h1{
+	font-size: 2em;
+}
+.listingitem p.lead{
+	font-size: 1.2em;
+}
+.listingitem img{
+	padding: 10px;
+	width: 100%;
+	min-height: auto;
+	height: auto;
+	box-sizing: border-box;
+}
+
+/*************************************
+*			RESPONSIVE				*
+*************************************/
+
+@media only screen and (min-width: 350px) {
+	.contactBlock{
+		width: 80%;
+	}
+	.tileBox{
+		min-height: 320px;
+	}
+}
+@media only screen and (min-width: 600px) {
+	.desktopWrapper, header{
+		max-width: 600px;
+		margin: 0px auto 10px;
+	}
+	header{
+		padding-bottom: 0px;
+	}
+	header .logo, header nav{
+		display: inline-block;
+		padding: 20px 20px 20px 40px;
+		box-sizing: border-box;
+	}
+	header .logo{
+		width: 30%;
+		text-align: left;
+	}
+	header nav{
+		text-align: right;
+		width: 70%;
+	}
+	.tileBox{
+		min-height: 400px;
+	}
+	.visual .text{
+		font-size: 2em;
+	}
+	.visual .checklist{
+		font-size: 2em;
+	}
+	.visual .checklist .fa-ul{
+		margin-left: 2em;
+	}
+	.visual .image{
+		width: 300px;
+		height: 300px;
+	}
+	.visual .articlelist .grid{
+		width: 150px;
+		height: 150px;
+	}
+	.visual .articlelist .item-1{ position: absolute; left:50%; margin-left: -75px; top: 50%; margin-top:-75px; }
+}
+@media only screen and (min-width: 750px) {
+	.desktopWrapper, header{ max-width: 900px; }
+	.width800 .desktopWrapper,.width800 header{ max-width: 800px; }
+	.width900 .desktopWrapper,.width900 header{ max-width: 900px; }
+	.width1000 .desktopWrapper,.width1000 header{ max-width: 1000px; }
+	.width1100 .desktopWrapper,.width1100 header{ max-width: 1100px; }
+	.width1200 .desktopWrapper,.width1200 header{ max-width: 1200px; }
+	.visual .articlelist .grid{
+		width: 120px;
+		height: 120px;
+	}
+	.visual .image{
+		width: 200px;
+		height: 200px;
+	}
+	.visual .articlelist .item-1{ position: absolute; left:50%; margin-left: -60px; top: 50%; margin-top:-60px; }
+	section, article{
+		display: flex;
+	}
+	.swap{
+		flex-direction: row-reverse;		
+	}
+	.tileBox{
+		width: 50%;
+	}
+	.visual{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		resize: vertical;
+		overflow: auto;		
+	}
+	article .visual{
+		justify-content: initial;
+	}
+}
+@media only screen and (min-width: 900px) {
+	.visual .image{
+		width: 300px;
+		height: 300px;
+	}
+	.visual .articlelist .grid{
+		width: 150px;
+		height: 150px;
+	}
+	.visual .articlelist .item-1{ position: absolute; left:50%; margin-left: -75px; top: 50%; margin-top:-75px; }
+}

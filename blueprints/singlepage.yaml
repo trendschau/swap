@@ -1,0 +1,27 @@
+title: Listing Page
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          fields:
+
+            individuals:
+              type: section
+              underline: true
+              fields:
+
+                header.numberlistings:
+                  type: text
+                  autofocus: false
+                  style: vertical
+                  size: medium
+                  default: 10
+                  label: How many items should be listed per page?

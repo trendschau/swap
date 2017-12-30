@@ -1,0 +1,90 @@
+title: Listing Page
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          fields:
+
+            individuals:
+              type: section
+              underline: true
+              fields:
+
+                header.category:
+                  type: text
+                  autofocus: false
+                  style: vertical
+                  size: medium
+                  default: Website
+                  label: Name the Category (maybe tagging?)
+
+                header.icon:
+                  type: text
+                  autofocus: false
+                  style: vertical
+                  size: medium
+                  default: fa fa-desktop
+                  label: Icon for Link
+
+                header.linklabel:
+                  type: text
+                  autofocus: false
+                  style: vertical
+                  size: medium
+                  default: Read all details
+                  label: Label for the link
+
+                header.description:
+                  type: text
+                  autofocus: false
+                  style: vertical
+                  size: huge
+                  placeholder: A short Description here
+                  label: Description (keep it short, about 120 chars)
+
+                header.url:
+                  type: text
+                  autofocus: false
+                  style: vertical
+                  size: medium
+                  placeholder: http://www.to-your-project.com
+                  label: URL to you project
+
+                header.urllabel:
+                  type: text
+                  autofocus: false
+                  style: vertical
+                  size: medium
+                  default: Visit Website
+                  label: Label for your Project-URL
+
+                header.backlabel:
+                  type: text
+                  autofocus: false
+                  style: vertical
+                  size: medium
+                  default: Back
+                  label: Label for back button
+
+                content:
+                  type: markdown
+                  label: Content
+                  validate:
+                    type: textarea
+
+                uploads:
+                  type: pagemedia
+                  label: Upload up to 10 images.
+                  random_name: true
+                  limit: 10
+                  filesize: 3
+                  accept:
+                    - image/*

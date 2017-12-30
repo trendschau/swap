@@ -1,0 +1,33 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+
+	<div class="desktopWrapper listingitem">
+		<article>
+			
+			<div class="tileBox positive">
+				<div class="meta"><i class="{{ page.header.icon }}"></i> {{ page.header.category }}</div>
+				<h1>{{ page.header.title }}</h1>
+				
+				<p class="lead">{{ page.header.description}}</p>
+				
+				{{ page.content }}
+				
+				<div class="footernavi">
+					<span class="left"><a class="left" href="{{ page.parent.url }}">{{ page.header.backlabel }}</a></span>
+					<span class="right"><a class="right" href="{{ page.header.url }}">{{ page.header.urllabel }}</a></span>
+				</div>
+			</div>
+			
+			<div class="tileBox negative nomargin">
+				{% for image in page.media.images %}
+				
+					{{ image.resize(600).html }}
+				
+				{% endfor %}
+			</div>
+			
+		</article>
+	</div>
+	
+{% endblock %}

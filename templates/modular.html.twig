@@ -1,0 +1,19 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+	
+	<div class="desktopWrapper startpage">
+	
+		{% for module in page.collection() %}
+			{% if loop.index is even %}
+			<section class="swap">
+			{% else %}	
+			<section>
+			{% endif %}	
+				{{ module.content }}
+			</section>
+		{% endfor %}
+	
+	</div>
+	
+{% endblock %}

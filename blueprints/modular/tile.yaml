@@ -1,0 +1,394 @@
+title: Tile
+
+rules:
+  slug:
+    pattern: '[a-zа-я][a-zа-я0-9_\-]+'
+    min: 2
+    max: 80
+
+form:
+  validation: loose
+
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: Content Tile
+
+          fields:
+
+            header.contentTitle:
+              type: text
+              autofocus: true
+              style: vertical
+              label: PLUGIN_ADMIN.TITLE
+
+            content:
+              type: markdown
+              label: Content
+              validate:
+                type: textarea
+
+            contentAddress:
+              type: section
+              title: Address
+              underline: true
+              fields:
+
+                columns:
+                  type: columns
+                  fields:
+
+                    addressColumn1:
+                      type: column
+                      fields:
+                        header.contentAddressIcon:
+                          type: text
+                          autofocus: false
+                          style: vertical
+                          placeholder: fa fa-map-marker
+                          label: Icon for Address
+                        header.contentAddressCompany:
+                          type: text
+                          autofocus: false
+                          style: vertical
+                          placeholder: My Company
+                          label: Company Name (MANDATORY)
+                        header.contentAddressSubline:
+                          type: text
+                          autofocus: false
+                          style: vertical
+                          placeholder: The best company in the world
+                          label: Company Subline
+                        header.contentAddressPerson:
+                          type: text
+                          autofocus: false
+                          style: vertical
+                          placeholder: Max Mustermann
+                          label: Name of the Contact Person
+
+                    addressColumn2:
+                      type: column
+                      fields:
+                        header.contentAddressStreet:
+                          type: text
+                          autofocus: false
+                          style: vertical
+                          placeholder: One Street 111
+                          label: Street and Number
+                        header.contentAddressPostal:
+                          type: text
+                          autofocus: false
+                          style: vertical
+                          placeholder: 111111
+                          label: Postal Code
+                        header.contentAddressCity:
+                          type: text
+                          autofocus: false
+                          style: vertical
+                          placeholder: Berlin
+                          label: City
+                        header.contentAddressCountry:
+                          type: text
+                          autofocus: false
+                          style: vertical
+                          placeholder: Germany
+                          label: Country
+
+                    addressColumn4:
+                      type: column
+                      fields:
+                        header.contentAddressPhone:
+                          type: text
+                          autofocus: false
+                          style: vertical
+                          placeholder: 1111111
+                          label: Phone
+                        header.contentAddressFax:
+                          type: text
+                          autofocus: false
+                          style: vertical
+                          placeholder: 111111
+                          label: Phone or Fax
+                        header.contentAddressMail:
+                          type: text
+                          autofocus: false
+                          style: vertical
+                          placeholder: your@mailadress.com
+                          label: E-Mail
+                        header.contentAddressUrl:
+                          type: text
+                          autofocus: false
+                          style: vertical
+                          placeholder: yourwebsite.com
+                          label: Website
+
+            contentButton:
+              type: section
+              title: Button
+              underline: true
+              fields:
+
+                header.contentButtonIcon:
+                  type: text
+                  autofocus: false
+                  style: vertical
+                  placeholder: fa fa-envelope
+                  label: Icon-Class (FontAwesome)
+
+                header.contentButtonMail:
+                  type: text
+                  autofocus: false
+                  style: vertical
+                  placeholder: my@mailaddress.com
+                  label: E-Mail
+
+                header.contentButtonLink:
+                  type: text
+                  autofocus: false
+                  style: vertical
+                  placeholder: http://mydomain.com
+                  label: Link
+
+                header.contentButtonLabel:
+                  type: text
+                  autofocus: false
+                  style: vertical
+                  placeholder: My cool button
+                  label: Button-Label
+
+        visuals:
+          title: Visual Tile
+          type: tab
+          fields:
+
+            help:
+              type: section
+              title: Read the rules
+              underline: true
+              text: In the visual tile, you can use only ONE of the elements below. If you fill out two elements, then the later element will overwrite the upper element. For example:  The "big icon" will overwrite the contact-elements, the "big text" will overwrite the "big icon".
+
+            visualContact:
+              type: section
+              title: Contact-Icons
+              underline: true
+              fields:
+
+                header.visualContact:
+                  type: list
+                  name: contact
+                  label: Add Icons and information for phone, email and social media
+                  style: vertical
+                  fields:
+                    .visualContactIcon:
+                      type: text
+                      label: Icon Class (optional)
+                      placeholder: fa fa-iconname
+                    .visualContactHeadline:
+                      type: text
+                      label: Headline
+                      placeholder: Call me
+                    .visualContactContent:
+                      type: text
+                      label: Content
+                      placeholder: Number, Mail or String (eg. Address or Name)
+                    .visualContactLink:
+                      type: text
+                      label: Link (optional for social media)
+                      placeholder: http://www.whatever.com
+                    .visualContactType:
+                      type: select
+                      label: Type
+                      options: 
+                        "number": number (phone/fax)
+                        "mail": e-mail
+                        "social": social
+
+            visualIcon:
+              type: section
+              title: Big Icon
+              underline: true
+              fields:
+
+                header.visualIcon:
+                  type: text
+                  autofocus: false
+                  style: vertical
+                  placeholder: fa fa-iconname
+                  label: Big Icon-Visual (add a class name of Font-Awesome)
+
+            visualText:
+              type: section
+              title: Big Text
+              underline: true
+              fields:
+
+                header.visualText:
+                  type: text
+                  autofocus: false
+                  style: vertical
+                  placeholder: ADD SHORT TEXT HERE FOR BIG TEXT VISUAL
+                  label: Big Text-Visual
+
+            visualButton:
+              type: section
+              title: Button
+              underline: true
+              fields:
+
+                header.visualButtonIcon:
+                  type: text
+                  autofocus: false
+                  style: horizontal
+                  placeholder: fa fa-envelope
+                  label: Icon (FontAwesome)
+
+                header.visualButtonLink:
+                  type: text
+                  autofocus: false
+                  style: horizontal
+                  placeholder: http://link.com
+                  label: Link
+
+                header.visualButtonMail:
+                  type: text
+                  autofocus: false
+                  style: horizontal
+                  placeholder: email@adress.com
+                  label: E-Mail-Adress
+ 
+                header.visualButtonLabel:
+                  type: text
+                  autofocus: false
+                  style: horizontal
+                  placeholder: Do Something!
+                  label: Button-Label
+
+            visualChecklist:
+              type: section
+              title: Checklist
+              underline: true
+              fields:
+
+                header.visualChecklistIcon:
+                  type: text
+                  autofocus: false
+                  style: horizontal
+                  placeholder: fa fa-check
+                  label: Icon for Checklist-Items (FontAwesome)
+
+                header.visualChecklistItems:
+                  type: list
+                  name: ChecklistItems
+                  label: Add Items for your Checklist
+                  style: horizontal
+                  fields:
+                    .visualChecklistItem:
+                      type: text
+                      label: Your Checklist item (keep it short!!)
+                      placeholder: Money Back Guarantee!
+
+            visualBarChart:
+              type: section
+              title: Bar Chart (e.g. for skills)
+              underline: true
+              fields:
+
+                header.visualBarChartItems:
+                  type: list
+                  name: BarChartItems
+                  label: Add Items for your Bar-Chart
+                  style: horizontal
+                  fields:
+                    .visualBarChartItem:
+                      type: text
+                      label: Your Bar-Chart Item (keep it short!!)
+                      placeholder: Soft Skills
+                    .visualBarChartPercent:
+                      type: text
+                      label: Percentage: (1-100)
+                      placeholder: 80
+
+            visualMap:
+              type: section
+              title: Map
+              underline: true
+              text: You have to enable the map. This way, you can store informations like key, latitude and longitude without showing the map. You can only show ONE map on the startpage, so be careful!
+              fields:
+
+                header.visualMapKey:
+                  type: text
+                  autofocus: false
+                  style: horizontal
+                  placeholder: Add the google developer key here
+                  label: Google Developer Key
+
+                header.visualMapLongitude:
+                  type: text
+                  autofocus: false
+                  style: horizontal
+                  placeholder: 131.044
+                  label: Longitude
+
+                header.visualMapLatitude:
+                  type: text
+                  autofocus: false
+                  style: horizontal
+                  placeholder: -25.363
+                  label: Latitude
+
+                header.visualMapActive:
+                  type: toggle
+                  label: PLUGIN_ADMIN.ENABLED
+                  style: horizontal
+                  highlight: 1
+                  default: 0
+                  help: PLUGIN_ADMIN.ENABLED_HELP
+                  options:
+                    0: PLUGIN_ADMIN.NO
+                    1: PLUGIN_ADMIN.YES
+                  validate:
+                    type: bool
+
+            visualImage:
+              type: section
+              title: Full Image
+              underline: true
+              fields:
+
+                uploads:
+                  type: pagemedia
+                  label: Images work best in an upright format. If you upload more than one image, a slideshow will appear.
+                  random_name: true
+                  limit: 10
+                  filesize: 3
+                  accept:
+                    - image/*
+
+            visualArticles:
+              type: section
+              title: Article List
+              underline: true
+              fields:
+
+                header.visualArticleList:
+                  type: pages
+                  size: medium
+                  label: Fetch articles from...
+                  show_all: false
+                  show_modular: false
+                  show_root: false
+                  help: Choose the page, where the articles are.
+
+                header.visualArticleNumber:
+                  type: text
+                  autofocus: false
+                  size: medium
+                  style: horizontal
+                  placeholder: 3
+                  label: How many articles?

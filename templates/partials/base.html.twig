@@ -1,0 +1,138 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getLanguage ?: 'de' }}">
+<head>
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+    {% include 'partials/metadata.html.twig' %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+	<link href="https://fonts.googleapis.com/css?family=Anton|Exo:900i" rel="stylesheet"> 
+	
+    {% block stylesheets %}
+        {% do assets.addCss('theme://css/normalize.css', 100) %}
+        {% do assets.addCss('theme://css/custom.css', 100) %}
+        {% do assets.addCss('theme://css/font-awesome/css/font-awesome.min.css', 100) %}
+    {% endblock %}
+    {{ assets.css() }}
+
+    {% block javascripts %}
+        {% do assets.addJs('theme://js/swiper.min.js') %}
+    {% endblock %}
+    {{ assets.js() }}
+
+{% endblock head %}
+</head>
+<body id="top" class="{{ page.header.body_classes }}{% if config.themes.swap.colorscheme %} {{ config.themes.swap.colorscheme }}{% endif %}{% if config.themes.swap.themewidth %} {{ config.themes.swap.themewidth }}{% endif %}">
+    
+	{% block header %}
+		
+		<header id="main-header"><div class="logo active">
+				<a href="{{ base_url == '' ? '/' : base_url }}"><img src="{{ url('theme://images/logo.png') }}" title="{{ config.site.title }}" alt="{{ config.site.title }}" /></a></h3>
+			</div><nav>
+				{% block header_navigation %}
+					{% include 'partials/navigation.html.twig' %}
+				{% endblock %}				
+			</nav>
+		</header>
+				
+    {% endblock %}
+
+    {% block showcase %}{% endblock %}
+
+    {% block body %}
+		{% block content %}{% endblock %}
+	{% endblock %}
+
+    {% block footer %}
+        <footer id="footer">
+        </footer>
+    {% endblock %}
+	
+	{% block bottom %}
+        <script>
+			var mapDiv	= document.getElementById("map");
+			if(mapDiv)
+			{
+				var longitude 	= parseFloat(mapDiv.getAttribute('data-longitude')),
+					latitude  	= parseFloat(mapDiv.getAttribute('data-latitude')),
+					mapkey 	 	= mapDiv.getAttribute('data-key');
+				
+				function initMap() {
+					var uluru = {lat: latitude, lng: longitude};
+					var map = new google.maps.Map(mapDiv, 
+					{
+						zoom: 14,
+						center: uluru
+					});
+					var marker = new google.maps.Marker(
+					{
+						position: uluru,
+						map: map
+					});
+				}
+
+				var mapsrc 		= document.createElement('script');
+				mapsrc.type		= "text/javascript",
+				mapsrc.src 		= "https://maps.googleapis.com/maps/api/js?key=AIzaSyDu9-3klIJCX29emzcnafZR3BepwoKMKrY&callback=initMap";
+				mapsrc.setAttribute('async', '');
+				mapsrc.setAttribute('defer', '');
+				document.body.appendChild(mapsrc);
+			}
+			
+			var queryString = window.location.search.split('?')[1];
+			
+			if(queryString == 'style=default'){
+				document.body.classList.add("default");
+				document.body.classList.remove("colorNature");
+				document.body.classList.remove("colorMono");
+				addQueryToLink(queryString);
+			}
+			
+			if(queryString == 'style=nature'){
+				document.body.classList.remove("default");		
+				document.body.classList.remove("colorMono");		
+				document.body.classList.add("colorNature");
+				addQueryToLink(queryString);
+			}
+			
+			if(queryString == 'style=mono'){
+				document.body.classList.remove("default");		
+				document.body.classList.remove("colorNature");		
+				document.body.classList.add("colorMono");
+				addQueryToLink(queryString);
+			}
+			
+			function addQueryToLink(queryString){
+				var links = document.getElementsByTagName('a');
+				for(var i = 0; i<links.length; i++){
+					if(!links[i].href.split('?')[1]){
+						links[i].href = links[i].href.split('?')[0] + '?' + queryString;
+					}
+				}
+			}
+			
+		</script>		
+
+		<!-- Piwik -->
+		<script type="text/javascript">
+		  var _paq = _paq || [];
+		  // tracker methods like "setCustomDimension" should be called before "trackPageView"
+		  _paq.push(['trackPageView']);
+		  _paq.push(['enableLinkTracking']);
+		  (function() {
+			var u="//piwik.trendschau.net/";
+			_paq.push(['setTrackerUrl', u+'piwik.php']);
+			_paq.push(['setSiteId', '5']);
+			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+			g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+		  })();
+		</script>
+		<!-- End Piwik Code -->
+
+    {% endblock %}
+	
+</body>
+</html>

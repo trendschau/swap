@@ -1,0 +1,35 @@
+<article>
+	<header class="articleHead">
+		<h1>{{ page.title }}</h1>
+		<p>{{ page.header.excerpt }}</p>
+	</header>
+	
+    {% if page.header.event is defined and page.header.time is defined %}	
+		<div class="eventInfo blogCta">
+			<ul>
+				<li><i class="icon-camera-alt"></i><span class="headline">Was?</span><span class="subline">{{ page.header.event }}<br>{{ page.header.eventextra }}</span></li>
+				<li><i class="icon-clock"></i><span class="headline">Wann?</span><span class="subline">{{ page.header.time }}<br>{{ page.header.timeextra }}</span></li>
+				<li><i class="icon-location"></i><span class="headline">Wo?</span><span class="subline">{{ page.header.location }}<br>{{ page.header.locationextra }}</span></li>
+			</ul>
+		</div>
+	{% endif %}
+	
+	{{ page.content }}
+			
+	{% for image in page.media.images %}
+		{{ image.resize(800).html }}
+	{% endfor %}
+
+    {% if show_prev_next %}
+
+        <p class="prev-next">
+            {% if not page.isFirst %}
+                <a class="button" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> {{ 'BLOG.ITEM.NEXT_POST'|t }}</a>
+            {% endif %}
+
+            {% if not page.isLast %}
+                <a class="button" href="{{ page.prevSibling.url }}">{{ 'BLOG.ITEM.PREV_POST'|t }} <i class="fa fa-chevron-right"></i></a>
+            {% endif %}
+        </p>
+    {% endif %}			
+</article>

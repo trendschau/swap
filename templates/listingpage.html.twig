@@ -1,0 +1,42 @@
+{% extends 'partials/base.html.twig' %}
+{% set collection = page.collection %}
+
+{% block content %}
+
+	<div class="desktopWrapper listingpage">
+	
+		{% for child in page.collection() %}
+			
+			{% if loop.index is even %}
+			<section class="swap">
+			{% else %}	
+			<section>
+			{% endif %}				
+				<div class="tileBox content">
+					<p class="category"><i class="{{ child.header.icon }}"></i> {{ child.header.category }}</p>
+					<h2><a href="{{ child.url }}" class="listingheadline">{{ child.header.title }}</a></h2>
+					<div class="readMore">
+						<a class="articlelink" href="{{ child.url }}">{{ child.header.linklabel }}</a>
+					</div>
+				</div>
+				
+				{% set image = child.media.images|first %}
+				{% if image %}
+					<div class="tileBox visual nomargin">
+						<div class="image">
+							<a href="{{ child.url }}">{{ image.resize(500).html }}</a>
+						</div>
+				{% else %}
+					<div class="tileBox visual">
+						<div class="icon">
+							<i class="{{ child.header.icon }}"></i>
+						</div>
+				{% endif %}		
+				</div>
+				
+			</section>
+		{% endfor %}
+	
+	</div>
+
+{% endblock %}

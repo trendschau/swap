@@ -1,0 +1,47 @@
+name: swap
+version: 1.0.0
+description: "a modern responsive theme with tiles"
+icon: empire
+author:
+  name: Sebastian Schürmanns
+  email: trendschau@gmail.com
+  url: http://trendschau.net
+homepage: http://trendschau.net
+license: MIT
+
+form:
+  validation: loose
+  fields:
+
+    colorscheme:
+        type: select
+        label: Color Scheme (choose between 'mint')
+        size: small
+        default: 'mint'
+        options:
+          'default' : 'default'
+          'colorNature' : 'nature'
+          'colorMono' : 'Mono'
+
+    themewidth:
+        type: select
+        label: Maximum width of content
+        size: small
+        default: '800'
+        options:
+          'width800' : '800px'
+          'width900' : '900px'
+          'width1000' : '1000px'
+          'width1100' : '1100px'
+          'width1200' : '1200px'
+
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in navbar
+        highlight: 1
+        default: 1
+        options:
+          1: PLUGIN_ADMIN.ENABLED
+          0: PLUGIN_ADMIN.DISABLED
+        validate:
+          type: bool

@@ -1,0 +1,71 @@
+{% set feed_url = blog.url == '/' or blog.url == base_url_relative ? (base_url_relative~'/'~blog.slug) : blog.url %}
+{% set new_base_url = blog.url == '/' ? '' : blog.url %}
+
+<nav class="blog var1">
+	<ul>
+		{% for p in page.find('/radtouren').children.order('date', 'desc') %}
+			<li><a href="{{ p.url }}"><i class="icon-angle-circled-right"></i>{{ p.title }}</a></li>
+		{% endfor %}	
+	</ul>	
+</nav>
+{% set bannerpage = pages.find('/banner').children %}
+{% for child in bannerpage %}
+	{% set first_image = child.media.images|first %}
+	<div class="banner">
+		<a href="{{ child.header.link }}">{{ first_image.resize(300).html }}</a>
+			<p>{{ child.header.text }}</p>
+	</div>
+{% endfor %}
+
+
+
+    {% for p in page.find('/blog').children.order('date', 'desc').slice(0, 5) %}
+        {% set bannerimage = p.media['banner.jpg'] %}
+        <div class="recent-post">
+            {% if bannerimage %}
+                <div class="recent-post-image">{{ bannerimage.cropZoom(60,60).quality(60) }}</div>
+            {% else %}
+                <div class="recent-post-image"><img src="{{ url('theme://images/logo.png') }}" width="60" height="60"></div>
+            {% endif %}
+            <div class="recent-post-text">
+                <h4><a href="{{p.url}}">{{ p.title }}</a></h4>
+                <p>{{ p.date|date("M j, Y")}}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+{% if config.plugins.simplesearch.enabled %}
+<div class="sidebar-content">
+    <h4>{{ 'SIDEBAR.SIMPLE_SEARCH.HEADLINE'|t }}</h4>
+    {% include 'partials/simplesearch_searchbox.html.twig' %}
+</div>
+{% endif %}
+{% if config.plugins.relatedpages.enabled and related_pages|length > 0 %}
+    <h4>{{ 'SIDEBAR.RELATED_POSTS.HEADLINE'|t }}</h4>
+    {% include 'partials/relatedpages.html.twig' %}
+{% endif %}
+{% if config.plugins.random.enabled %}
+<div class="sidebar-content">
+	<h4>{{ 'SIDEBAR.RANDOM_ARTICLE.HEADLINE'|t }}</h4>
+	<a class="button" href="{{ base_url }}/random"><i class="fa fa-retweet"></i> {{ 'SIDEBAR.RANDOM_ARTICLE.FEELING_LUCKY'|t }}</a>
+</div>
+{% endif %}
+{% if config.plugins.taxonomylist.enabled %}
+<div class="sidebar-content">
+    <h4>{{ 'SIDEBAR.POPULAR_TAGS.HEADLINE'|t }}</h4>
+    {% include 'partials/taxonomylist.html.twig' with {'base_url':new_base_url, 'taxonomy':'tag'} %}
+</div>
+{% endif %}
+{% if config.plugins.archives.enabled %}
+<div class="sidebar-content">
+    <h4>{{ 'SIDEBAR.ARCHIVES.HEADLINE'|t }}</h4>
+	{% include 'partials/archives.html.twig' with {'base_url':new_base_url} %}
+</div>
+{% endif %}
+{% if config.plugins.feed.enabled %}
+<div class="sidebar-content syndicate">
+    <h4>{{ 'SIDEBAR.SYNDICATE.HEADLINE'|t }}</h4>
+    <a class="button" href="{{ feed_url }}.atom"><i class="fa fa-rss-square"></i> Atom 1.0</a>
+    <a class="button" href="{{ feed_url }}.rss"><i class="fa fa-rss-square"></i> RSS</a>
+</div>
+{% endif %}

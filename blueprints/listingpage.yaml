@@ -1,0 +1,52 @@
+title: Listing Page
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          fields:
+
+            individuals:
+              type: section
+              title: Listing Configurations
+              underline: true
+              fields:
+
+                header.content.items:
+                  type: select
+                  label: PLUGIN_ADMIN.ITEMS
+                  default: '@self.children'
+                  options:
+                    '@self.children' : Children of this page
+
+                header.content.order.by:
+                  type: select
+                  label: PLUGIN_ADMIN.ORDER_BY
+                  default: date
+                  options:
+                    folder: PLUGIN_ADMIN.FOLDER
+                    title: PLUGIN_ADMIN.TITLE
+                    date: PLUGIN_ADMIN.DATE
+                    default: PLUGIN_ADMIN.DEFAULT
+
+                header.content.order.dir:
+                  type: select
+                  label: PLUGIN_ADMIN.ORDER
+                  default: desc
+                  options:
+                    asc: PLUGIN_ADMIN.ASCENDING
+                    desc: PLUGIN_ADMIN.DESCENDING
+
+                header.numberlistings:
+                  type: text
+                  autofocus: false
+                  style: horizontal
+                  default: 10
+                  label: How many items should be listed per page?
