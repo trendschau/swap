@@ -15,4 +15,4 @@ No time for active developement but clones and pull requests are always welcome
 ## Screenshot
 Swap comes with three different designs right now. Standard Design is something like that: 
 
-![Standard-Design](/screenshot.jpg)
+![Standard-Design](/thumbnail.jpg)
