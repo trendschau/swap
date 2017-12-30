@@ -12,3 +12,7 @@ SWAP is a theme for grav cms. Simply
 SWAP is under MIT-Licence, so do with it what you want
 ## Contribute
 No time for active developement but clones and pull requests are always welcome
+## Screenshot
+Swap comes with three different designs right now. Standard Design is something like that: 
+
+![Standard-Design](/screenshot.jpg)
